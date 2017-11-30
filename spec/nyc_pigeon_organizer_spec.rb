@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'pry'
 describe "NYC Pigeon Organizer" do
 
   describe "#nyc_pigeon_organizer" do
@@ -47,6 +47,7 @@ describe "NYC Pigeon Organizer" do
           @theo = @result["Theo"]
         end
         it "knows Theo is purple and grey" do
+        #  binding.pry
           expect(@theo[:color].length).to eq(2)
           ["purple", "grey"].each { |c| expect(@theo[:color]).to include(c) }
         end
