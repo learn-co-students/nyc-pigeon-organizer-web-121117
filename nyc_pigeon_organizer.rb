@@ -3,18 +3,13 @@ def nyc_pigeon_organizer(data)
   data.each do |category, values|
     values.each do |value, names|
       names.each do |name|
-        if pigeon_list.include?(name)
-          if pigeon_list[name].include?(category)
-            pigeon_list[name][category] << value.to_s
-          else
-            pigeon_list[name][category] = []
-            pigeon_list[name][category] << value.to_s
-          end
-        else
+        if !pigeon_list.include?(name)
           pigeon_list[name] = {}
-          pigeon_list[name][category] = []
-          pigeon_list[name][category] << value.to_s
         end
+        if !pigeon_list[name].include?(category)
+          pigeon_list[name][category] = []
+        end
+        pigeon_list[name][category] << value.to_s
       end
     end
   end
